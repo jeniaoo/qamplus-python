@@ -21,13 +21,19 @@ class VoiceClient(object):
             country_iso2=country_iso2, technology=technology)
 
 
-    def update(self):
-        pass
+    def update(self, reference_id, execution_logic):
+        api_resource = self.api_resource.format(reference_id)
+        return self.base_obj.put(api_resource=api_resource,
+                                  execution_logic=execution_logic)
 
-    def delete(self):
-        pass
+    def delete(self, reference_id):
+        api_resource = self.api_resource.format(reference_id)
+        return self.base_obj.delete(api_resource=api_resource)
 
-    def get_status(self):
-        pass
+    def get_status(self, reference_id):
+        api_resource = self.api_resource.format(reference_id)
+        return self.base_obj.get(api_resource=api_resource)
+
+
 
 

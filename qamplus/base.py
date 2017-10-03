@@ -68,16 +68,16 @@ class QamPlusClient(requests.models.RequestEncodingMixin):
     def post(self, api_resource, **params):
         return self._send(api_resource, self.session.post, **params)
 
-    def put(self, uri, headers, **params):
-        return self._send(uri, self.auth_header, self.session.put, **params)
+    def put(self, api_resource, **params):
+        return self._send(api_resource, self.session.put, **params)
 
 
-    def get(self, uri, headers, **params):
-        return self._send(uri, self.auth_header, self.session.get, **params)
+    def get(self, api_resource, **params):
+        return self._send(api_resource, self.session.get, **params)
 
 
-    def delete(self, uri, headers, **params):
-        return self._send(uri, self.auth_header, self.session.delete, **params)
+    def delete(self, api_resource, **params):
+        return self._send(api_resource, self.auth_header, self.session.delete, **params)
 
     def _send(self, api_resource, method_function, **params):
         """
