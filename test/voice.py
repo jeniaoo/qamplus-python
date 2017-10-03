@@ -33,6 +33,8 @@ class TestModels(unittest.TestCase):
             ]
     }
 
+    phone_number = '1234567890'
+
     def setUp(self):
         pass
 
@@ -48,7 +50,7 @@ class TestModels(unittest.TestCase):
     def test_create_new_call_outbound(self):
         client = QamPlusClient(customer_id=self.customer_id, password=self.password)
         response = client.voice.create(direction="outbound",
-           to='18188509066',
+           to=self.phone_number,
            caller_id="12123456781",
            execution_logic=self.execution_logic,
            reference_logic=self.reference_logic,
