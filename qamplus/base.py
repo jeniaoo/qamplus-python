@@ -77,7 +77,7 @@ class QamPlusClient(requests.models.RequestEncodingMixin):
 
 
     def delete(self, api_resource, **params):
-        return self._send(api_resource, self.auth_header, self.session.delete, **params)
+        return self._send(api_resource, self.session.delete, **params)
 
     def _send(self, api_resource, method_function, **params):
         """

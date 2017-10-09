@@ -33,7 +33,7 @@ class TestModels(unittest.TestCase):
             ]
     }
 
-    phone_number = '1234567890'
+    phone_number = ''
 
     def setUp(self):
         pass
@@ -66,6 +66,7 @@ class TestModels(unittest.TestCase):
         assert status is not None
         assert status.status_code == 200
 
+
         update_response = client.voice.update(
             reference_id=response.json.get('reference_id'),
             execution_logic=self.update_logic
@@ -73,6 +74,13 @@ class TestModels(unittest.TestCase):
 
         assert update_response is not None
         assert update_response.status_code == 200
+
+        delete_response = client.voice.delete(
+            reference_id=response.json.get('reference_id')
+
+        )
+
+
 
         status = client.voice.get_status(
             reference_id=response.json.get('reference_id'))
