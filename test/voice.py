@@ -50,12 +50,13 @@ class TestModels(unittest.TestCase):
     def test_create_new_call_outbound(self):
         client = QamPlusClient(customer_id=self.customer_id, password=self.password)
         response = client.voice.create(direction="outbound",
-           to=self.phone_number,
-           caller_id="12123456781",
-           execution_logic=self.execution_logic,
-           reference_logic=self.reference_logic,
-           country_iso2="us",
-           technology="pstn" )
+            to=self.phone_number,
+            caller_id="12123456781",
+            execution_logic=self.execution_logic,
+            reference_logic=self.reference_logic,
+            country_iso2="us",
+            technology="pstn",
+            status_callback_uri='')
 
         assert response is not None
         assert response.status_code == 200
