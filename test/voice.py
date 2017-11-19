@@ -23,7 +23,6 @@ class TestModels(unittest.TestCase):
     customer_id = ''
     password = ''
 
-
     update_logic = {
         "initial": "answer",
         "steps":

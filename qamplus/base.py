@@ -61,7 +61,8 @@ class QamPlusClient(requests.models.RequestEncodingMixin):
 
     @staticmethod
     def generate_auth_header(customer_id, password):
-        userAndPass = b64encode(b"{}:{}".format(customer_id, password)).decode("ascii")
+        userpass_concat = "{}:{}".format(customer_id, password)
+        userAndPass = b64encode(userpass_concat.encode()).decode("ascii")
         header = {'Authorization': 'Basic %s' % userAndPass}
         return header
 
