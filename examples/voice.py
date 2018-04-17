@@ -12,10 +12,11 @@ execution_logic= {
 
 customer_id = 'abcd...'
 password = 'password'
+phone_number = '19876543210'
 
-client = QamPlusClient('68539eee-081d-11e5-a6c0-1697f925ec7b', 'a5504874-081d-11e5-a6c0-1697f925ec7b')
+client = QamPlusClient(customer_id, password)
 response = client.voice.create(direction="outbound",
-                               to='18188509066',
+                               to=phone_number,
                                caller_id="12123456789",
                                execution_logic=execution_logic,
                                reference_logic=execution_logic,
